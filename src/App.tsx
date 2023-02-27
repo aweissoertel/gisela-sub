@@ -1,6 +1,10 @@
 import React from 'react';
+import getSubways from './api';
 
 function App() {
+  React.useEffect(() => {
+    getSubways().then(res => console.log(res));
+  }, []);
 
   return (
     <div className="App">
