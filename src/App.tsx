@@ -5,13 +5,22 @@ import SubwayLabel from './SubwayLabel';
 
 function App() {
   const [trains, setTrains] = React.useState<Departure[]>([]);
+  const [time, setTime] = React.useState(Date.now());
 
   React.useEffect(() => {
     getSubways().then(res => setTrains(res));
+    const interval = setInterval(() => {
+      setTime(Date.now());
+      getSubways().then(res => setTrains(res));
+    }, 1000*10);
+    
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
 
   return (
-    <div className="App">
+    <div className="App" key={time}>
       {trains.slice(0,8).map((train, idx) => (
         <div key={idx} className="Row">
           <SubwayLabel label={train.label} color={train.lineBackgroundColor} />
