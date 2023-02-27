@@ -2,8 +2,9 @@
 
 interface Departure {
     canceled: boolean;
-    delay: number;
+    delay?: number;
     departureId: string;
+    departureTime: number;
     destination: string;
     infoMessages: string[];
     label: string;
