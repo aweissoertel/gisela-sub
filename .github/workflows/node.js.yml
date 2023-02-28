@@ -39,6 +39,6 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ~/dist/
+          local-dir: /home/runner/dist/
           server-dir: ./httpdocs/gisela/
           dangerous-clean-slate: true
