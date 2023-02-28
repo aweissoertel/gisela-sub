@@ -32,12 +32,13 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: dist
+          path: ~/dist/
       - name: deploy
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/
+          local-dir: ~/dist/
           server-dir: ./httpdocs/gisela/
           dangerous-clean-slate: true
