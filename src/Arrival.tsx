@@ -1,17 +1,13 @@
 export interface ArrivalProps {
-    departureTime: number;
-    delay?: number;
+    delta?: number
 }
 
-const Arrival = ({ departureTime, delay }: ArrivalProps) => {
-    const now = new Date();
-    now.setSeconds(0, 0);
-    const departure = new Date(departureTime);
-    const delta = (departure.getTime() - now.getTime()) / (1000 * 60) + (delay ?? 0);
+const Arrival = ({ delta = 0 }: ArrivalProps) => {
+    const displayDelta = delta <= 0 ? 'Jetzt' : delta;
 
     return (
         <h1 className="Arrival">
-            {delta}
+            {displayDelta}
         </h1>
     );
 };

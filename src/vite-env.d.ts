@@ -3,6 +3,7 @@
 interface Departure {
     canceled: boolean;
     delay?: number;
+    delta?: number;
     departureId: string;
     departureTime: number;
     destination: string;

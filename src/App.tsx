@@ -21,11 +21,11 @@ function App() {
 
   return (
     <div className="App" key={time}>
-      {trains.slice(0,8).map((train, idx) => (
+      {trains.map((train, idx) => (
         <div key={idx} className="Row">
           <SubwayLabel label={train.label} color={train.lineBackgroundColor} />
           <h1 className="Destination">{train.destination}</h1>
-          <Arrival departureTime={train.departureTime} delay={train.delay} />
+          <Arrival delta={train.delta} />
         </div>
       ))}
     </div>
