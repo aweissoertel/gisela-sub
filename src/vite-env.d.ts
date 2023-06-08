@@ -1,23 +1,19 @@
 /// <reference types="vite/client" />
-
 interface Departure {
-    canceled: boolean;
-    delay?: number;
-    delta?: number;
-    departureId: string;
-    departureTime: number;
-    destination: string;
-    infoMessages: string[];
-    label: string;
-    lineBackgroundColor: string;
-    live: boolean;
-    platform: string;
-    product: string;
-    sev: boolean;
-    stopPositionNumber: number;
-}
-
-interface ApiResponse {
-    departures: Departure[];
-    servingLines: any[];
+    plannedDepartureTime: number,
+    realtime: boolean,
+    delayInMinutes: number,
+    realtimeDepartureTime: number,
+    transportType: string,
+    label: string,
+    network: string,
+    trainType: string,
+    destination: string,
+    cancelled: boolean,
+    sev: boolean,
+    platform: number,
+    messages: string[],
+    bannerHash: string,
+    occupancy: string,
+    stopPointGlobalId: string,
 }
