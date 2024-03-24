@@ -2,8 +2,9 @@ import config from '../config';
 
 export const fetchRaw = async () => {
     const station = localStorage.getItem('station') ?? config.stationId;
+    const antiCache = Date.now();
     // don't mind me, nothing to see here 👀
-    const url = 'https://corsproxy.io/?' + encodeURIComponent(`https://www.mvg.de/api/fib/v2/departure?globalId=${station}&offset=${config.offset}`);
+    const url = 'https://corsproxy.io/?' + encodeURIComponent(`https://www.mvg.de/api/fib/v2/departure?globalId=${station}&offset=${config.offset}&lol=${antiCache}`);
     try {
         const response = await fetch(url);
         const data = await response.json() as Departure[];
