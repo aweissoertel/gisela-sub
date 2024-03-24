@@ -1,8 +1,11 @@
 import config from '../config';
 
 export const fetchRaw = async () => {
+    const station = localStorage.getItem('station') ?? config.stationId;
+    // don't mind me, nothing to see here 👀
+    const url = 'https://corsproxy.io/?' + encodeURIComponent(`https://www.mvg.de/api/fib/v2/departure?globalId=${station}&offset=${config.offset}`);
     try {
-        const response = await fetch(`https://www.mvg.de/api/fib/v2/departure?globalId=${config.stationId}&offset=${config.offset}`);
+        const response = await fetch(url);
         const data = await response.json() as Departure[];
         return data;
     } catch (e) {
