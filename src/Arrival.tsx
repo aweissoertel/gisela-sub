@@ -1,13 +1,15 @@
 export interface ArrivalProps {
-    delta?: number
+    delta?: number;
+    actual: Date;
 }
 
-const Arrival = ({ delta = 0 }: ArrivalProps) => {
+const Arrival = ({ delta = 0, actual }: ArrivalProps) => {
     const displayDelta = delta <= 0 ? 'Jetzt' : delta;
+    const displayPadded = (valAsNumber: number) => valAsNumber.toString().padStart(2, '0');
 
     return (
         <h1 className="Arrival">
-            {displayDelta}
+            ({displayPadded(actual.getHours())}:{displayPadded(actual.getMinutes())}) {displayDelta}
         </h1>
     );
 };
