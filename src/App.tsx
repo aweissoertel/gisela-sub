@@ -19,7 +19,7 @@ function App() {
     const interval = setInterval(() => {
       setTime(getCleanTime());
       getSubways().then(res => setTrains(res));
-    }, 1000*10);
+    }, 1000*20);
     
     return () => {
       clearInterval(interval);
